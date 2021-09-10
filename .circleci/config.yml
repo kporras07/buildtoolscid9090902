@@ -4,6 +4,7 @@ workflows:
   version: 2
   compile_sass_and_push:
     jobs:
+    - pantheon/static_tests
     - npmbuild_and_persist
     - pantheon/push:
         # This "requires" section tells CircleCI the order in which
@@ -33,7 +34,7 @@ workflows:
           - run: rm web/themes/custom/default/.gitignore
 
 orbs:
-  pantheon: kporras07/pantheon-circleci@0.0.1
+  pantheon: kporras07/pantheon-circleci@0.0.2
 jobs:
   npmbuild_and_persist:
     docker:
