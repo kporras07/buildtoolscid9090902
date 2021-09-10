@@ -13,7 +13,7 @@ workflows:
         # Because the checkout command is called from pre-steps, it should
         # not be run inside the orb-defined steps.
         checkout: false
-        terminus_clone_env: false
+        clone_content: false
         pre-steps:
           # Perform a git checkout of the code from GitHub/Bitbucket so that
           # custom commands (the rm below) can alter the code before it is
