@@ -32,7 +32,7 @@ workflows:
           - run: rm web/themes/custom/default/.gitignore
 
 orbs:
-  pantheon: pantheon-systems/pantheon@dev:pre-0-1-0-notes
+  pantheon: kporras07/pantheon-circleci@dev:0.0.1
 jobs:
   npmbuild_and_persist:
     docker:
