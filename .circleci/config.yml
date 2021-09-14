@@ -31,12 +31,15 @@ workflows:
           # file so that lines specifying build artifact directories are removed.
           # https://github.com/pantheon-systems/example-drops-8-composer/blob/670ae310c601dabbb7b35411ff3e08e4b1fac7a3/composer.json#L67
           - run: rm web/themes/custom/default/.gitignore
-    - pantheon/behat_tests:
+    - pantheon/visual_regression:
         requires:
           - pantheon/push
+    - pantheon/behat_tests:
+        requires:
+          - pantheon/visual_regression
 
 orbs:
-  pantheon: kporras07/pantheon-circleci@0.0.3
+  pantheon: kporras07/pantheon-circleci@0.0.4
 jobs:
   npmbuild_and_persist:
     docker:
