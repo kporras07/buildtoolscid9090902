@@ -55,7 +55,7 @@ workflows:
       - pantheon/composer_lock_updater
 
 orbs:
-  pantheon: kporras07/pantheon-circleci@0.0.10
+  pantheon: kporras07/pantheon-circleci@0.0.11
 jobs:
   npmbuild_and_persist:
     docker:
