@@ -2,7 +2,7 @@
 version: 2.1
 workflows:
   version: 2
-  compile_sass_and_push:
+  build_deploy_and_test:
     jobs:
     - pantheon/static_tests
     - npmbuild_and_persist
@@ -38,8 +38,19 @@ workflows:
         requires:
           - pantheon/visual_regression
 
+  scheduled_update_check:
+    triggers:
+       - schedule:
+           cron: "0 0 * * *"
+           filters:
+             branches:
+              only:
+                - master
+    jobs:
+      - pantheon/composer_lock_updater
+
 orbs:
-  pantheon: kporras07/pantheon-circleci@0.0.9
+  pantheon: kporras07/pantheon-circleci@0.0.10
 jobs:
   npmbuild_and_persist:
     docker:
