@@ -39,7 +39,7 @@ workflows:
           - pantheon/visual_regression
 
 orbs:
-  pantheon: kporras07/pantheon-circleci@0.0.6
+  pantheon: kporras07/pantheon-circleci@0.0.7
 jobs:
   npmbuild_and_persist:
     docker:
